@@ -1,0 +1,15 @@
+{{!< default}}
+
+<div class="gh-pasge">
+    <div class="gh-containers">
+        {{> "sidebar"}}
+        <div class="gh-postfeeds">
+            {{#foreach posts}}
+
+            {{> "card"}}
+
+            {{/foreach}}
+        </div>
+
+    </div>
+</div>
