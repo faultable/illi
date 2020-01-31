@@ -1,0 +1,73 @@
+{{!< default}}
+
+{{#post}}
+
+<article class="gh-article {{post_class}}">
+
+    <header class="gh-header gh-canvas">
+        <span class="gh-post-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
+            <span class="bull">&bull;</span> {{reading_time}}</span>
+        <h1 class="gh-title">{{title}}</h1>
+
+        {{#if custom_excerpt}}
+        <p class="gh-excerpt">{{custom_excerpt}}</p>
+        {{/if}}
+
+        {{#if feature_image}}
+        <img class="gh-feature-image" src="{{feature_image}}" alt="{{title}}" />
+        {{/if}}
+    </header>
+
+    <div class="gh-content gh-canvas">
+        {{content}}
+    </div>
+
+    <footer class="gh-footer gh-canvas">
+
+        <div class="gh-post-authors">
+            {{> "cta" }}
+        </div>
+
+        {{!-- begin comment: I use Discourse-based comment embedding, feels free to delete/change this --}}
+
+        {{!-- <section class="gh-post-comments">
+            {{#if published_at}}
+
+            <div id='discourse-comments'></div>
+
+            <script type="text/javascript">
+                DiscourseEmbed = {
+                    discourseUrl: '',
+                    discourseEmbedUrl: '{{url absolute="true"}}'
+                };
+
+                (function () {
+                    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+                    d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+                })();
+            </script>
+
+            {{/if}}
+        </section> --}}
+
+        {{!-- end comment --}}
+
+    </footer>
+
+</article>
+
+<aside class="gh-readmore">
+    <div class="gh-readmore-inner gh-container">
+        <div class="gh-readmore-next">
+            {{#next_post}}<a href="{{url}}">{{> "icons/arrow-left"}} <h4>{{title}}</h4></a>{{/next_post}}
+        </div>
+        <div class="gh-readmore-prev">
+            {{#prev_post}}<a href="{{url}}">
+                <h4>{{title}}</h4> {{> "icons/arrow-right"}}
+            </a>{{/prev_post}}
+        </div>
+    </div>
+</aside>
+
+{{/post}}
